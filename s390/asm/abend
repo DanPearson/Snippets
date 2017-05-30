@@ -1,0 +1,10 @@
+         ABEND (6),REASON=(7),,,USER                                    00390
+         DS    0H                                                       01-AB
+         LR    1,6                               LOAD PARAMETER REG 1   02-IH
+         SLL   1,20(0)            SHIFT OFF HIGH ORDER 20 BITS @G860P1F 01-AB
+         SRL   1,20(0)            SHIFT TO USER POSITION                01-AB
+         LR    15,7               LOAD REG15 WITH REASON CODE  @G860P1F 01-AB
+         LA    0,4(0,0)           DUMP/STEP/DUMPOPTS/REASON    @G860P1F 01-AB
+         SLL   0,24(0)            SHIFT TO HIGH ORDER                   01-AB
+         OR    1,0                OR IN WITH COMPCODE                   01-AB
+         SVC   13                 LINK TO ABEND ROUTINE                 01-AB
